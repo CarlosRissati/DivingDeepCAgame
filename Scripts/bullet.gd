@@ -2,22 +2,14 @@ extends Area2D
 
 @export var speed = 700
 
-var target = null
-var angle = null
-
-func _ready():
-	target = get_global_mouse_position()
-	angle = get_angle_to(target)
-	look_at(target)
+var direcao = Vector2.ZERO
 
 func _process(delta):
-	#if Input.is_action_pressed("mouse_left_click"):	
-	#position += (Vector2.from_angle(get_angle_to(target))*speed) * delta
-	position += (Vector2.from_angle(angle)*speed)*delta
+	position += direcao * speed * delta
+	pass
 
-func _physics_process(delta):
-	set_physics_process(false)
-
+func set_direcao(nova_direcao):
+	direcao = nova_direcao
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	print("Sai da tela")

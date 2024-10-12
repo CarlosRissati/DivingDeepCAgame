@@ -1,7 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjxmctsbyjtbg"]
+[gd_scene load_steps=32 format=3 uid="uid://cjxmctsbyjtbg"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_n4y65"]
 [ext_resource type="Texture2D" uid="uid://cfgyjw8js1wh2" path="res://Assets/Players/players blue x3.png" id="2_52kas"]
+[ext_resource type="Texture2D" uid="uid://3kv1a4uvrhgv" path="res://Assets/gun1.png" id="3_3o4mr"]
+[ext_resource type="Texture2D" uid="uid://daru2jg0igq6m" path="res://Assets/gun2.png" id="4_0dcts"]
+[ext_resource type="Texture2D" uid="uid://bxx3ouc0qa2bs" path="res://Assets/gun3.png" id="5_da41d"]
+[ext_resource type="Texture2D" uid="uid://d2dnixktvqa46" path="res://Assets/gun4.png" id="6_4isdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g15xj"]
 size = Vector2(36, 15)
@@ -188,21 +192,54 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vut7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3o4mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0dcts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_da41d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4isdc")
+}],
+"loop": true,
+"name": &"Fired",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3o4mr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="Player" type="Node2D"]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="."]
 script = ExtResource("1_n4y65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
-position = Vector2(0, 34.5)
+position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_g15xj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody"]
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_7l736")
-animation = &"Shoot"
+animation = &"Idle"
+frame_progress = 0.622465
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 zoom = Vector2(1.5, 1.5)
 
-[node name="Marker2D" type="Marker2D" parent="PlayerBody"]
-gizmo_extents = 19.0
+[node name="Gun" type="Node2D" parent="PlayerBody"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody/Gun"]
+sprite_frames = SubResource("SpriteFrames_3vut7")
+animation = &"Fired"
