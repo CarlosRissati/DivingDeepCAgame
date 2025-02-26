@@ -20,3 +20,9 @@ func _on_body_entered(body):
 	if !body.name == "PlayerBody":
 		queue_free()
 	
+
+
+func _on_area_shape_entered(area_rid:RID, area:Area2D, area_shape_index:int, local_shape_index:int):
+	if area.name == "HitboxInimigo":
+		queue_free()
+	pass # Replace with function body.

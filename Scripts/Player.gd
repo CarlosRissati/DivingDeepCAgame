@@ -45,6 +45,9 @@ func _process(delta):
 		_animation_player.flip_h = true
 	if Input.is_action_just_pressed("move_right"):
 		_animation_player.flip_h = false
+
+	if Input.is_key_pressed(KEY_F):
+		get_tree().reload_current_scene()
 	
 	# arma rodando em volta do personagem
 	var mouse_pos = get_global_mouse_position()

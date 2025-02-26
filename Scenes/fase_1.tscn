@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c64sdn1fnrjem"]
+[gd_scene load_steps=5 format=3 uid="uid://c64sdn1fnrjem"]
 
 [ext_resource type="TileSet" uid="uid://cntyxwhfol7lr" path="res://Assets/TileSet/FloorTiles.tres" id="1_cvxwa"]
 [ext_resource type="PackedScene" uid="uid://cjxmctsbyjtbg" path="res://Scenes/player.tscn" id="2_u6jv1"]
 [ext_resource type="PackedScene" uid="uid://diajyskphh564" path="res://Scenes/Upgrade_Reload.tscn" id="3_8yv3h"]
+[ext_resource type="PackedScene" uid="uid://deycpeiqk8j0i" path="res://Scenes/inimigo.tscn" id="4_i7tno"]
 
 [node name="fase1" type="Node2D"]
 
@@ -27,13 +28,26 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(2, 1310720, 0, 3, 983040, 1, 4, 1048576, 1, 5, 1048576, 1, 327692, 1310720, 12, 327693, 1441792, 12, 262145, 262144, 12, 262146, 327680, 12, 262147, 393216, 20, 0, 983040, 1, 11, 1048576, 1, 6, 1114112, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_u6jv1")]
-position = Vector2(452, 210)
+position = Vector2(438, 217)
 
-[node name="Upgrade_Reload" parent="." instance=ExtResource("3_8yv3h")]
+[node name="Inimigos" type="Node" parent="."]
+
+[node name="Inimigo" parent="Inimigos" instance=ExtResource("4_i7tno")]
+position = Vector2(165, 176)
+
+[node name="Inimigo2" parent="Inimigos" instance=ExtResource("4_i7tno")]
+position = Vector2(332, 154)
+
+[node name="Inimigo3" parent="Inimigos" instance=ExtResource("4_i7tno")]
+position = Vector2(188, 311)
+
+[node name="Upgrades" type="Node" parent="."]
+
+[node name="Upgrade_Reload" parent="Upgrades" instance=ExtResource("3_8yv3h")]
 position = Vector2(475, 327)
 
-[node name="Upgrade_Reload2" parent="." instance=ExtResource("3_8yv3h")]
+[node name="Upgrade_Reload2" parent="Upgrades" instance=ExtResource("3_8yv3h")]
 position = Vector2(567, 347)
 
-[node name="Upgrade_Reload3" parent="." instance=ExtResource("3_8yv3h")]
+[node name="Upgrade_Reload3" parent="Upgrades" instance=ExtResource("3_8yv3h")]
 position = Vector2(604, 243)
