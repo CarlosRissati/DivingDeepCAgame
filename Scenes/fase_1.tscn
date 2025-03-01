@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c64sdn1fnrjem"]
 
 [ext_resource type="TileSet" uid="uid://cntyxwhfol7lr" path="res://Assets/TileSet/FloorTiles.tres" id="1_cvxwa"]
-[ext_resource type="Script" path="res://Scenes/TileMapModificado.gd" id="2_s4grq"]
+[ext_resource type="Script" path="res://Scripts/TileMapModificado.gd" id="2_7bf6j"]
 [ext_resource type="PackedScene" uid="uid://cjxmctsbyjtbg" path="res://Scenes/player.tscn" id="2_u6jv1"]
 [ext_resource type="PackedScene" uid="uid://diajyskphh564" path="res://Scenes/Upgrade_Reload.tscn" id="3_8yv3h"]
 [ext_resource type="PackedScene" uid="uid://deycpeiqk8j0i" path="res://Scenes/inimigo.tscn" id="4_i7tno"]
@@ -20,7 +20,7 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(131069, 65536, 2, 196605, 65536, 2, 262141, 65536, 2, 327677, 65536, 2, 393213, 65536, 2, 65533, 65536, 1, 65534, 327680, 0, 65535, 327680, 0, 2, 327680, 0, 3, 327680, 0, 4, 393216, 0, 65540, 589824, 2, 131076, 589824, 2, 196612, 589824, 2, 393220, 589824, 4, 458756, 589824, 9, 458755, 327680, 10, 458754, 327680, 10, 458753, 327680, 10, 458752, 327680, 10, 524287, 327680, 10, 524286, 327680, 10, 524285, 131072, 10, 458749, 65536, 2, 5, 524288, 10, -65531, 458752, 9, -65536, 65536, 8, -131072, 65536, 8, -196608, 262144, 9, 0, 196608, 10, 1, 327680, 10)
-script = ExtResource("2_s4grq")
+script = ExtResource("2_7bf6j")
 
 [node name="Player" parent="." instance=ExtResource("2_u6jv1")]
 position = Vector2(658, 452)

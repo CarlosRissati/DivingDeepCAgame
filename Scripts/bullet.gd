@@ -22,7 +22,8 @@ func _on_body_entered(body):
 	
 
 
-func _on_area_shape_entered(area_rid:RID, area:Area2D, area_shape_index:int, local_shape_index:int):
+func _on_area_shape_entered(_area_rid:RID, area:Area2D, _area_shape_index:int, _local_shape_index:int):
 	if area.name == "HitboxInimigo":
+		# print("balapapai")
 		queue_free()
 	pass # Replace with function body.

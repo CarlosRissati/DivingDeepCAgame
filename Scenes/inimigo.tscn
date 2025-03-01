@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://deycpeiqk8j0i"]
+[gd_scene load_steps=28 format=3 uid="uid://deycpeiqk8j0i"]
 
 [ext_resource type="Texture2D" uid="uid://bjjrvfif1jk76" path="res://Assets/Enemies/enemies x3.png" id="1_15p3b"]
 [ext_resource type="Script" path="res://Scripts/Inimigo.gd" id="1_qocg8"]
@@ -173,7 +173,10 @@ animations = [{
 size = Vector2(48, 62)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4n6b"]
-radius = 220.511
+radius = 166.193
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_srl5p"]
+radius = 398.031
 
 [node name="Inimigo" type="Node2D"]
 
@@ -208,13 +211,20 @@ debug_enabled = true
 process_mode = 1
 wait_time = 0.5
 
-[node name="Visao" type="Area2D" parent="EnemyBody"]
+[node name="VisaoAtaque" type="Area2D" parent="EnemyBody"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/Visao"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/VisaoAtaque"]
 shape = SubResource("CircleShape2D_f4n6b")
+
+[node name="VisaoMoimento" type="Area2D" parent="EnemyBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/VisaoMoimento"]
+shape = SubResource("CircleShape2D_srl5p")
 
 [connection signal="area_shape_entered" from="EnemyBody/HitboxInimigo" to="EnemyBody" method="_on_area_2d_area_shape_entered"]
 [connection signal="velocity_computed" from="EnemyBody/NavigationAgent2D" to="EnemyBody" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="EnemyBody/Timer" to="EnemyBody" method="_on_timer_timeout"]
-[connection signal="body_entered" from="EnemyBody/Visao" to="EnemyBody" method="_on_visao_body_entered"]
-[connection signal="body_exited" from="EnemyBody/Visao" to="EnemyBody" method="_on_visao_body_exited"]
+[connection signal="body_entered" from="EnemyBody/VisaoAtaque" to="EnemyBody" method="_on_visao_body_entered"]
+[connection signal="body_exited" from="EnemyBody/VisaoAtaque" to="EnemyBody" method="_on_visao_body_exited"]
+[connection signal="body_entered" from="EnemyBody/VisaoMoimento" to="EnemyBody" method="_on_visao_moimento_body_entered"]
+[connection signal="body_exited" from="EnemyBody/VisaoMoimento" to="EnemyBody" method="_on_visao_moimento_body_exited"]
