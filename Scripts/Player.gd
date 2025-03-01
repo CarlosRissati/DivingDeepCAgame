@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #variaveis relacionadas ao player
-const SPEED = 300.0
+const SPEED = 200
 @onready var _animation_player = $AnimatedSprite2D
 
 #Variaveis relacionadas a arma
