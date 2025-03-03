@@ -65,6 +65,7 @@ func _process(delta):
 		_gun_animation.play("Fired", SHOOT_ANIMATION_SPEED)
 		var bala = bullet.instantiate()
 		get_parent().add_child(bala)
+		bala.who_created = get_node(".")
 		bala.global_position = _gun.global_position
 		var direcao = (mouse_pos - bala.global_position).normalized()
 		bala.set_direcao(direcao)

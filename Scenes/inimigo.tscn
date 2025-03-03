@@ -185,6 +185,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_qocg8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody"]
+visible = false
 position = Vector2(3, -15.5)
 shape = SubResource("RectangleShape2D_88ck4")
 
@@ -193,11 +194,13 @@ light_mask = 2
 visibility_layer = 3
 sprite_frames = SubResource("SpriteFrames_ggp3d")
 animation = &"Shoot"
+frame_progress = 0.242227
 
 [node name="HitboxInimigo" type="Area2D" parent="EnemyBody"]
 position = Vector2(-2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitboxInimigo"]
+visible = false
 position = Vector2(3, -15)
 shape = SubResource("RectangleShape2D_bljni")
 
@@ -205,6 +208,7 @@ shape = SubResource("RectangleShape2D_bljni")
 path_desired_distance = 10.0
 path_postprocessing = 1
 avoidance_enabled = true
+radius = 20.0
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="EnemyBody"]
@@ -214,12 +218,20 @@ wait_time = 0.5
 [node name="VisaoAtaque" type="Area2D" parent="EnemyBody"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/VisaoAtaque"]
+visible = false
 shape = SubResource("CircleShape2D_f4n6b")
 
 [node name="VisaoMoimento" type="Area2D" parent="EnemyBody"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/VisaoMoimento"]
+visible = false
 shape = SubResource("CircleShape2D_srl5p")
+
+[node name="ArmaDireita" type="Marker2D" parent="EnemyBody"]
+position = Vector2(17, 4)
+
+[node name="ArmaEsquerda" type="Marker2D" parent="EnemyBody"]
+position = Vector2(-1, 4)
 
 [connection signal="area_shape_entered" from="EnemyBody/HitboxInimigo" to="EnemyBody" method="_on_area_2d_area_shape_entered"]
 [connection signal="velocity_computed" from="EnemyBody/NavigationAgent2D" to="EnemyBody" method="_on_navigation_agent_2d_velocity_computed"]

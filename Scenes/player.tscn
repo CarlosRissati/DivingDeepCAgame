@@ -240,6 +240,7 @@ frame_progress = 0.622465
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
 
 [node name="Gun" type="Node2D" parent="PlayerBody"]
 
